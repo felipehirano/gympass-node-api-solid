@@ -83,3 +83,12 @@ Gympass style app
 - Create a docker-compose.yml that will list all containers that has in the application;
 - Run `docker compose up -d` to start and `docker compose down` to stop and delete all data from this container;
 - Prefer to use `docker compose stop` to not delete all data from container;
+
+## Vitest
+
+- Run `npm i vitest vite-tsconfig-paths -D`;
+- vite-tsconfig-paths it`s a plugin to vitest understand the paths sets in the tsconfig.json(imports that has @/);
+- Create a file called vite.config.ts;
+- Create a script to run the vitest on your package.json;
+- Run `npm i -D @vitest/ui` to install ui from vitest;
+- Create a script to run vitest/ui
