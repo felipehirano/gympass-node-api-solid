@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma'
 // The prisma will generate many types when you ran npx prisma generate
-import { Prisma } from '@prisma/client'
+import { Prisma, User } from '@prisma/client'
 import { UsersRepository } from '../users-repository'
 
 export class PrismaUsersRepository implements UsersRepository {
