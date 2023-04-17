@@ -11,7 +11,7 @@ Gympass style app
 - [ ] Deve ser possível o usuário obter o histório de checkins;
 - [ ] Deve ser possível o usuário buscar academias próximas;
 - [ ] Deve ser possível o usuário buscar academias pelo nome;
-- [ ] Deve ser possível o usuário realixar checkin em uma academia;
+- [x] Deve ser possível o usuário realizar checkin em uma academia;
 - [ ] Deve ser possível validar o checkin de um usuário;
 - [ ] Deve ser possível cadastrarr uma academia;
 
@@ -19,8 +19,8 @@ Gympass style app
 ## RNs (Regras de negócio)
 
 - [x] O usuário não deve poder se cadastrar com e-mail duplicado;
-- [ ] O usuário não pode fazer 2 checkins no mesmo dia;
-- [ ] O usuário não pode fazer checkin se não estiver perto (100m) da academia;
+- [x] O usuário não pode fazer 2 checkins no mesmo dia;
+- [x] O usuário não pode fazer checkin se não estiver perto (100m) da academia;
 - [ ] O checkin só pode ser validado até 20 minutos depois de criado;
 - [ ] O checkin só pode ser validado por administradoes;
 - [ ] A academia só pode ser cadastrada por administradores;
@@ -28,7 +28,7 @@ Gympass style app
 ## RNFs (Requisitos não-funcionais)
 
 - [x] A senha do usuário precisa estar criptografada;
-- [ ] Os dados da aplicação precisam estar persistidos em um banco de dados PostgreSQL;
+- [x] Os dados da aplicação precisam estar persistidos em um banco de dados PostgreSQL;
 - [ ] Todas listas de dados precisam estar paginadas com 20 items por página;
 - [ ] O usuário deve ser identificado por um JWT(Jason Web Token);
 
@@ -92,3 +92,4 @@ Gympass style app
 - Create a script to run the vitest on your package.json;
 - Run `npm i -D @vitest/ui` to install ui from vitest;
 - Create a script to run vitest/ui
+- Run `npm i dayjs` to work with dates;
