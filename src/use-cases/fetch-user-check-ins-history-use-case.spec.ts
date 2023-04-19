@@ -1,6 +1,6 @@
 import { InMemoryCheckInRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { expect, describe, it, beforeEach } from 'vitest'
-import { FetchUserCheckInsHistoryUseCase } from './fetch-user-check-ins-history'
+import { FetchUserCheckInsHistoryUseCase } from './fetch-user-check-ins-history-use-case'
 
 let checkInsRepository: InMemoryCheckInRepository
 let sut: FetchUserCheckInsHistoryUseCase
@@ -42,17 +42,15 @@ describe('Fetch User Check-Ins Use Case', async () => {
       })
     }
 
-    console.log(checkInsRepository.items.length)
-
     const { checkIns } = await sut.execute({
       userId: 'user-01',
       page: 2,
     })
 
     expect(checkIns).toHaveLength(2)
-    // expect(checkIns).toEqual([
-    //   expect.objectContaining({ gym_id: 'gym-21' }),
-    //   expect.objectContaining({ gym_id: 'gym-22' }),
-    // ])
+    expect(checkIns).toEqual([
+      expect.objectContaining({ gym_id: 'gym-21' }),
+      expect.objectContaining({ gym_id: 'gym-22' }),
+    ])
   })
 })

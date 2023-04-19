@@ -1,6 +1,6 @@
 import { CheckInsRepository } from '@/repositories/check-ins-repository'
 import { GymsRepository } from '@/repositories/gyms-repository'
-import { getDistanceBetweenCordinates } from '@/utils/get-distance-between-cordinates'
+import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-cordinates'
 import { CheckIn } from '@prisma/client'
 import { MaxDistanceError } from './errors/max-distance'
 import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins'
@@ -37,7 +37,7 @@ export class CheckInUseCase {
 
     // calculate distance between user and gym
 
-    const distance = getDistanceBetweenCordinates(
+    const distance = getDistanceBetweenCoordinates(
       { latitude: userLatitude, longitude: userLongitude },
       {
         latitude: gym.latitude.toNumber(),
