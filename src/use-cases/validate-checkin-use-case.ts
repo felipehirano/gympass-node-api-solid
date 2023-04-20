@@ -1,4 +1,4 @@
-import { InMemoryCheckInRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
+import { CheckInsRepository } from '@/repositories/check-ins-repository'
 import { CheckIn } from '@prisma/client'
 import dayjs from 'dayjs'
 import { LateCheckInValidateError } from './errors/late-checkin-validate'
@@ -13,7 +13,7 @@ interface ValidateCheckInUseCaseResponse {
 }
 
 export class ValidateCheckInUseCase {
-  constructor(private checkInsRepository: InMemoryCheckInRepository) {}
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
   async execute({
     checkInId,

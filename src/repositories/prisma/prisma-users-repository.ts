@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma'
 // The prisma will generate many types when you ran npx prisma generate
-import { Prisma, User } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { UsersRepository } from '../users-repository'
 
 export class PrismaUsersRepository implements UsersRepository {
@@ -8,6 +8,16 @@ export class PrismaUsersRepository implements UsersRepository {
     const user = await prisma.user.findUnique({
       where: {
         email,
+      },
+    })
+
+    return user
+  }
+
+  async findById(id: string) {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
       },
     })
 
