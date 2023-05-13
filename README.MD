@@ -93,3 +93,34 @@ Gympass style app
 - Run `npm i -D @vitest/ui` to install ui from vitest;
 - Create a script to run vitest/ui
 - Run `npm i dayjs` to work with dates;
+
+## JWT
+
+- Json Web Token;
+- Usuário faz login, envia e-mail/senha, o back-end cria um token ÚNICO, não modificável e STATELESS;
+- Back-end: Quando vai criar o token ele usa uma PALAVRA-CHAVE(Normalmente é uma string);
+- Palavra-chave: fiuahifuaiuehwfiuhgauifhgauiwhahsuida(literalmente qualquer coisa);
+- O token gerado é dividido em header.payload.sign(palavra-chanve);
+- Qualquer alteração que ocorroa ou no header ou no payload(por interceptação) o sign gerado pela palavra chave também irá mudar. (jwt.io)
+- Faz login -> back-end gera um JWT - E esse jwt é utilizado em todas as requisições dali pra frente;
+- O JWT é enviado pelo authorization do Header através do Bearer JWT (e náo do basic authorization);
+- Run `npm i @fastify/jwt`;
+
+## TE2E
+
+- Simular a aplicação de ponta a ponta;
+- O usuário nesse caso é o front-end;
+- Precisa utilizar um banco de dados separado para testes;
+- Separar o banco de dados por switch de testes;
+- Cada teste precisa rodar em um ambiente totalmente isolado;
+- Ter um banco limpo a cada execução de um teste começa a se tornar menos perfomático;
+- Utilizar o conceito de teste enviroment;
+- Dentro da pasta prisma, criar uma pasta chamada vitest-environment-prisma e executar `npm init -y` dentro dela;
+- Remover o scripts do package gerado nessa pasta;
+- Criar um arquivo chamado prisma-test-environment.ts e setar no main(arquivo principal do pacote) do package;
+- Exportar do arquivo prisma-test-environment.ts a configuração isolada de cada teste;
+- Começar a testar pelo src/http/controllers;
+- Nas configs do vitest(vite.config.ts) criar um objeto test com a propriedade environmentMatchGlobs com o caminho dos testes que desejamos que tenha esse ambiente isolado e o segundo parâmetro sendo o "nome final" do pacote que contém as configurações desse ambiente, no caso, de "vitest-environment-prisma" como "prisma";
+- Entrar no pacote vitest-environment-prisma e executar `npm link` o npm irá criar para esse pacote como se fosse um repositório local na máquina e voltando na aplicação global, instalar esse pacote que ficou disponível localmente através do comando `npm link vitest-environment-prisma`, dessa forma poderemos executar os testes pois a aplicação global irá entender que existe um pacote chamado vitest-environment-prisma;
+
+
