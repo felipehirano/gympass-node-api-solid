@@ -122,5 +122,18 @@ Gympass style app
 - Começar a testar pelo src/http/controllers;
 - Nas configs do vitest(vite.config.ts) criar um objeto test com a propriedade environmentMatchGlobs com o caminho dos testes que desejamos que tenha esse ambiente isolado e o segundo parâmetro sendo o "nome final" do pacote que contém as configurações desse ambiente, no caso, de "vitest-environment-prisma" como "prisma";
 - Entrar no pacote vitest-environment-prisma e executar `npm link` o npm irá criar para esse pacote como se fosse um repositório local na máquina e voltando na aplicação global, instalar esse pacote que ficou disponível localmente através do comando `npm link vitest-environment-prisma`, dessa forma poderemos executar os testes pois a aplicação global irá entender que existe um pacote chamado vitest-environment-prisma;
+- Rode o comando `npm install -D npm-run-all` para fazer uma conversão dos scripts do package.json para funcionar em qualquer sistema operacional; 
+- E ao inves de executar o comando como `cd prisma/vitest-environment-prisma && npm link` utilize o comando `run-s test:create-prisma-environment test:install-prisma-environment` para poder criar o ambiente de teste e2e em qualquer servidor independente do sistema operacional que ele utilize. OBS (run -s) significa que o pacote npm run all ira executar os comandos em sequência, se fosse para executar de forma paralela era só passar o -p ao inves do -s;
+- Rodar o comando `npm i supertest -D` para realizar as chamadas http nos testes e o `npm i @types/supertest -D` para instalar seus types;
 
 
+## Cookies
+
+- Run `npm i @fastify/cookie` to install cookies and save refresh token in there;
+
+## RBAC ( Role based authorization control)
+
+- Create a new field called role in user that are in schema.prisma
+- Run `npx prisma migrate dev` to create the migration;
+- When you will authenticate, save the role in the jwtSignin;
+- In src/@types/fastify.jwt.d.ts create a role to set the type of role from user;
