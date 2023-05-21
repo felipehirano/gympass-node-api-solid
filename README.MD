@@ -148,4 +148,5 @@ Gympass style app
 - Go to github actions marketplace and see the steps that you need to use, for example,
 Setup Node.js environment to install the environment inside the SO setted in .yml;
 - git push origin e2e-> Will create a pull request to compare in github;
+- Or you can use the command gh pr create to create a new pull request besides git push;
 - Test pull request
