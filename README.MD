@@ -22,15 +22,15 @@ Gympass style app
 - [x] O usuário não pode fazer 2 checkins no mesmo dia;
 - [x] O usuário não pode fazer checkin se não estiver perto (100m) da academia;
 - [x] O checkin só pode ser validado até 20 minutos depois de criado;
-- [ ] O checkin só pode ser validado por administradoes;
-- [ ] A academia só pode ser cadastrada por administradores;
+- [x] O checkin só pode ser validado por administradoes;
+- [x] A academia só pode ser cadastrada por administradores;
 
 ## RNFs (Requisitos não-funcionais)
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados da aplicação precisam estar persistidos em um banco de dados PostgreSQL;
 - [x] Todas listas de dados precisam estar paginadas com 20 items por página;
-- [ ] O usuário deve ser identificado por um JWT(Jason Web Token);
+- [x] O usuário deve ser identificado por um JWT(Jason Web Token);
 
 ## Setup
 - `npm init -y `;
@@ -137,3 +137,13 @@ Gympass style app
 - Run `npx prisma migrate dev` to create the migration;
 - When you will authenticate, save the role in the jwtSignin;
 - In src/@types/fastify.jwt.d.ts create a role to set the type of role from user;
+
+## CI ( Continuous Integration)
+
+### Github Actions
+
+- Create a folder called .github;
+- Inside this folder create another folder called workflows;
+- These workflows are many commands that we want to run inside the repository;
+- Go to github actions marketplace and see the steps that you need to use, for example,
+Setup Node.js environment to install the environment inside the SO setted in .yml;
